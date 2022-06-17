@@ -129,7 +129,8 @@ const renderImage = async () => {
   let html = "";
   // console.log(image.data);
   image.data.map(imgs => {
-    let apiImages = `<img src="${imgs.backgroundImage}" >`;
+    let apiImages = `<div><img src="${imgs.backgroundImage}" >
+                     <h2>${imgs.title}</h2></div>`;
     html += apiImages;
   });
 
@@ -148,7 +149,6 @@ renderImage();
 
 const container = document.querySelector('.resturent_card');
 let pageCount = 1;
-
 const getData = async() =>{
   try{
     const response = await fetch (`http://training.panorbitprojects.com/api/RestaurantsList/?page=${pageCount}`)
@@ -182,21 +182,46 @@ const restaurant_data = async() =>{
     container.innerHTML += restaurantList;
   });
 }
-
-const showData =() =>{
-  setTimeout(()=>{
-    pageCount++;
-    restaurant_data()
-  },300)
+restaurant_data();
+const debounce = (fnc,delay)=>{
+  let timeOutID;
+  return function(...args){
+    if(timeOutID){
+      clearTimeout(timeOutID);
+    }
+    timeOutID=setTimeout(()=>{
+      fnc(...args)
+    },delay)
+  }
 }
 
-window.addEventListener('scroll',()=>{
-  const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
-  if(scrollTop+clientHeight>=scrollHeight){
-    showData();
-  }
-})
-restaurant_data();
+
+  window.addEventListener("scroll", debounce(e=>{
+    const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
+    if(clientHeight+scrollTop>=scrollHeight){
+      pageCount++;
+    restaurant_data();
+    }
+  },3000));
+  
+// restaurant_data();
+// const showData =() =>{
+//   setTimeout(()=>{
+//     pageCount++;
+//     restaurant_data()
+    
+//   },300)
+// }
+// const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
+// window.addEventListener('scroll',()=>{
+  
+//   if(clientHeight+scrollTop>=scrollHeight){
+    // pageCount++;
+    // restaurant_data();
+//     showData();
+//   }
+// })
+
 
 // Count Restaurants
 const restaurant_count = async () =>{

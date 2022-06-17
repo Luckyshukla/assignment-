@@ -188,6 +188,20 @@ header{
    height: 260px;
    margin: 20px 30px;
  }
+ .slider h2{
+  padding-left: 65px;
+  width: 260px;
+  
+  position: absolute;
+  top: 200px;
+  color: white;
+ }
+ /* h2 { 
+  position: absolute; 
+  top: 200px; 
+  left: 30px; 
+  width: 100%; 
+} */
  /* .text{
 
  } */
@@ -240,7 +254,12 @@ header{
  
  
  div.slider img:hover{
+  cursor: pointer;
    transform: scale(105%, 105%);
+   /* transition: ease-in 0.3ms; */
+ } 
+ div.slider h2:hover{
+  cursor: pointer;
  } 
 
 /* Filter nav */
