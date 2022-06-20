@@ -1,5 +1,5 @@
 hamburger = document.querySelector(".hamburger");
-hamburger.onclick= function(){
+hamburger.onclick = function () {
   navBar = document.querySelector(".nav-bar");
   navBar.classList.toggle("active");
 }
@@ -40,7 +40,7 @@ hamburger.onclick= function(){
 // function next(direction){
 //   if(direction=="next"){
 //     totalSlides;
-    
+
 //      index++;
 //       if(index+3 ==totalSlides){    
 //        index=0;
@@ -75,17 +75,17 @@ const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 let direction;
 
-next.addEventListener('click', function() {
+next.addEventListener('click', function () {
   direction = -1;
   carousel.style.justifyContent = 'center';
-  slider.style.transform = 'translate(-12.38%)';  
+  slider.style.transform = 'translate(-12.38%)';
 });
 
-prev.addEventListener('click', function() {
+prev.addEventListener('click', function () {
   direction = 1;
-  carousel.style.justifyContent = 'center';    
-  slider.style.transform = 'translate(12.38%)';  
-  
+  carousel.style.justifyContent = 'center';
+  slider.style.transform = 'translate(12.38%)';
+
 });
 // slider =(direction) =>{
 //   if (direction===-1){
@@ -97,15 +97,15 @@ prev.addEventListener('click', function() {
 //   }
 // }
 
-slider.addEventListener('transitionend', function() {
+slider.addEventListener('transitionend', function () {
   // get the last element and append it to the front
-  
+
   if (direction === 1) {
     slider.prepend(slider.lastElementChild);
   } else {
     slider.appendChild(slider.firstElementChild);
   }
-  
+
   slider.style.transition = 'none';
   slider.style.transform = 'translate(0)';
   setTimeout(() => {
@@ -115,13 +115,13 @@ slider.addEventListener('transitionend', function() {
 
 
 
-const getCarousalData = async ()=>{
-  try{
-  let response = await fetch('http://training.panorbitprojects.com/api/GetCarousalData/')
-  return await response.json();
-} catch (error) {
-  console.log(error);
-}
+const getCarousalData = async () => {
+  try {
+    let response = await fetch('http://training.panorbitprojects.com/api/GetCarousalData/')
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const renderImage = async () => {
@@ -149,20 +149,20 @@ renderImage();
 
 const container = document.querySelector('.resturent_card');
 let pageCount = 1;
-const getData = async() =>{
-  try{
-    const response = await fetch (`http://training.panorbitprojects.com/api/RestaurantsList/?page=${pageCount}`)
+const getData = async () => {
+  try {
+    const response = await fetch(`http://training.panorbitprojects.com/api/RestaurantsList/?page=${pageCount}`)
     return await response.json();
-  } catch(error){
-  console.log(error)
-}
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 
-const restaurant_data = async() =>{
+const restaurant_data = async () => {
   let resturent_details = await getData();
-  resturent_details.data.restaurants.map((value) =>{
-    const  restaurantList = `
+  resturent_details.data.restaurants.map((value) => {
+    const restaurantList = `
     <div class="hidden">
     <div class="card">
     <div class="img"><img src="${value.image}" /></div>
@@ -183,50 +183,50 @@ const restaurant_data = async() =>{
   });
 }
 restaurant_data();
-const debounce = (fnc,delay)=>{
+const debounce = (fnc, delay) => {
   let timeOutID;
-  return function(...args){
-    if(timeOutID){
+  return function (...args) {
+    if (timeOutID) {
       clearTimeout(timeOutID);
     }
-    timeOutID=setTimeout(()=>{
+    timeOutID = setTimeout(() => {
       fnc(...args)
-    },delay)
+    }, delay)
   }
 }
 
 
-  window.addEventListener("scroll", debounce(e=>{
-    const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
-    if(clientHeight+scrollTop>=scrollHeight){
-      pageCount++;
+window.addEventListener("scroll", debounce(e => {
+  const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
+  if (clientHeight + scrollTop >= scrollHeight) {
+    pageCount++;
     restaurant_data();
-    }
-  },3000));
-  
+  }
+}, 3000));
+
 // restaurant_data();
 // const showData =() =>{
 //   setTimeout(()=>{
 //     pageCount++;
 //     restaurant_data()
-    
+
 //   },300)
 // }
 // const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
 // window.addEventListener('scroll',()=>{
-  
+
 //   if(clientHeight+scrollTop>=scrollHeight){
-    // pageCount++;
-    // restaurant_data();
+// pageCount++;
+// restaurant_data();
 //     showData();
 //   }
 // })
 
 
 // Count Restaurants
-const restaurant_count = async () =>{
+const restaurant_count = async () => {
   let count = await getData();
-  document.querySelector(".Count").innerHTML = count.data.count+" "+"restaurants";
+  document.querySelector(".Count").innerHTML = count.data.count + " " + "restaurants";
 }
 
 restaurant_count();

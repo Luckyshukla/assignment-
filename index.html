@@ -1,80 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">\
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">\
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body >
+
+<body>
   <!-- Navbar -->
   <header class="navigation-bar">
     <div class="logo">
-        <img id = "logo-img"src="images/swiggy-1.svg">
-        <div class="location"><span class="city">Jayanagar<span class="line"></span></span>
-          
-          <span class="state">Bengaluru, Karnataka, India</span>
-          <i class="fa-solid fa-angle-down" style="color:#ffa700"></i>
-        </div>
+      <img id="logo-img" src="images/swiggy-1.svg">
+      <div class="location"><span class="city">Jayanagar<span class="line"></span></span>
+
+        <span class="state">Bengaluru, Karnataka, India</span>
+        <i class="fa-solid fa-angle-down" style="color:#ffa700"></i>
+      </div>
     </div>
-    <div class ="hamburger">
+    <div class="hamburger">
       <div class='line'></div>
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <nav class = "nav-bar">
+    <nav class="nav-bar">
       <ul>
         <li>
-          <a href = "#"><i class="fa-solid fa-magnifying-glass"></i></i>Search</a>
-          </li>
+          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></i>Search</a>
+        </li>
         <li>
-          <a href = "#"><i class="fa fa-certificate"></i>Offers<sup><span><b>New</b></span></sup></a>
-          </li><li>
-          <a href = "#"><i class="fa fa-life-ring"></i>Help</a>
-          </li>
+          <a href="#"><i class="fa fa-certificate"></i>Offers<sup><span><b>New</b></span></sup></a>
+        </li>
         <li>
-          <a href = "#"><i class="far fa-user"></i>Sign In</a>
-          </li>
-          <li>
-            <a href = "#"><i class="fa fa-shopping-cart"></i>Cart</a>
-            </li>
+          <a href="#"><i class="fa fa-life-ring"></i>Help</a>
+        </li>
+        <li>
+          <a href="#"><i class="far fa-user"></i>Sign In</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-shopping-cart"></i>Cart</a>
+        </li>
       </ul>
     </nav>
   </header>
 
-<!-- slider-->
+  <!-- slider-->
 
-<div class="parentContainer">
-  <div class="container">
-    <div class="carousel">
-      <div class="slider">
-        
+  <div class="parentContainer">
+    <div class="container">
+      <div class="carousel">
+        <div class="slider">
+
+        </div>
+      </div>
+      <div class="controls">
+        <button class="next" onclick="next(-1)"><i class="fa fa-arrow-right"></i></button>
+        <button class="prev" onclick="prev(1)"><i class="fa fa-arrow-left"></i></button>
       </div>
     </div>
-    <div class="controls">
-      <button class="next" onclick="next(-1)"><i class="fa fa-arrow-right"></i></button>
-      <button class="prev" onclick="prev(1)"><i class="fa fa-arrow-left"></i></button>
-    </div>
   </div>
-</div>
 
 
 
 
-<!-- <div class="slider">
+  <!-- <div class="slider">
   <button class="left-slide" onclick="next('prev')" ><i class="fa-solid fa-arrow-left"></i></button>
  <div class="slider-items" id="si"> -->
- <!-- <div class="child "> -->
-     <!-- <img src="https://panorbit.s3.ap-south-1.amazonaws.com/restaurants/bracoli.jpeg" /> -->
-     <!-- <div class="text-block">
+  <!-- <div class="child "> -->
+  <!-- <img src="https://panorbit.s3.ap-south-1.amazonaws.com/restaurants/bracoli.jpeg" /> -->
+  <!-- <div class="text-block">
          <h2>Grab 40% Off on First Order</h2>
          <hr class="line">
          <p>What a beautiful sunrise</p>
        </div> -->
   <!-- </div>  -->
- <!-- <div class="child active" id="c2">
+  <!-- <div class="child active" id="c2">
      <img src="https://panorbit.s3.ap-south-1.amazonaws.com/restaurants/somosa.jpeg" />
  </div>
  <div class="child active" id="c3">
@@ -97,13 +102,13 @@
  <div class="child" id="c8">
   <img src="https://panorbit.s3.ap-south-1.amazonaws.com/restaurants/somosa.jpeg" />
 </div>-->
-<!-- </div> 
+  <!-- </div> 
  <button class="right-Slide" onclick="next('next')"><i class="fa-solid fa-arrow-right"></i></button>
 </div>  -->
 
 
 
-<!-- Filter nav -->
+  <!-- Filter nav -->
 
 
 </body>
@@ -111,33 +116,33 @@
 <!-- filter nav -->
 <main class="cards_container">
   <div class="filter_nav">
-      <div class="Count"></div>
-      <ul class="filter-links">
-          <li>
-              <a class = "active"href="#"> Relevance</a>
-          </li>
-          <li>
-              <a href="#">Relevance</a>
-          </li>
-          <li>
-              <a href="#">Rating</a>
-          </li>
-          <li>
-              <a href="#">Cost: High To Low</a>
-          </li>
-          <li>
-            <a href="#">Cost: Low To High</a>
-        </li>
-          <li>
-              <a href="#">Filters</a><span><i class="fa fa-filter"></i></span>
-          </li>
-      </ul>
+    <div class="Count"></div>
+    <ul class="filter-links">
+      <li>
+        <a class="active" href="#"> Relevance</a>
+      </li>
+      <li>
+        <a href="#">Relevance</a>
+      </li>
+      <li>
+        <a href="#">Rating</a>
+      </li>
+      <li>
+        <a href="#">Cost: High To Low</a>
+      </li>
+      <li>
+        <a href="#">Cost: Low To High</a>
+      </li>
+      <li>
+        <a href="#">Filters</a><span><i class="fa fa-filter"></i></span>
+      </li>
+    </ul>
   </div>
 </main>
 
-  <!-- <hr class="under_line"/> -->
-  
-  <!-- resturent Card -->
+<!-- <hr class="under_line"/> -->
+
+<!-- resturent Card -->
 <div class="resturent_card">
   <!-- <div class="hidden">
     <div class="card">
@@ -156,6 +161,7 @@
   <div class="quick"><a href="#">Quick view</a></div>-->
 </div>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
+
 </html>
